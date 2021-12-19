@@ -1,11 +1,240 @@
+/* COLORS USED; DARK THEME:
+ Background   -> #121212
+ Text         -> #BB86FC
+ Primary      -> #3700B3
+ Secondary    -> #03DAC6
+*/
+
+/* ----- BODY ----- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #BB86FC;
+}
+
+/* ----- LINKS ----- */
+/* unvisited link */
+a:link {
+ color: #FFFFFF;
+}
+
+/* visited link */
+a:visited {
+ color: #3700B3;
+}
+
+/* mouse over link */
+a:hover {
+ color: #03DAC6;
+}
+
+/* selected link */
+a:active {
+ color: #3700B3;
+}
+
+/* ----- TITLE ----- */
+.title-div {
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+/* ----- REFERENCES ----- */
+.references-div {
+  padding: 10px 100px;
+  font-size: 18px;
+}
+
+/* ----- INSTRUCTIONS ----- */
+.instructions-div {
+  padding: 10px 100px;
+  font-size: 20px;
+}
+
+/* ----- MODEL BOX ----- */
+.model {
+  margin: 10px 50px;
+  padding: 30px 50px;
+  border: solid #BB86FC 5px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 99vw;
+}
+
+
+/* ----- LOADING MODEL ----- */
+/* Hourglass from https://loading.io/css/ */
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #03DAC6;
+  border-color: #03DAC6 transparent #03DAC6 transparent;
+  animation: lds-hourglass 1.4s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(450deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(900deg);
+  }
+}
+
+/* ----- MODEL LOADED ----- */
+#loaded {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* ----- IMAGE ----- */
+.image-div {
+ display: flex;
+ margin-bottom: 50px;
+}
+
+/* Set a height so the image are not to differetn and change too much the layout of the web */
+#canvas-image {
+  height: 500px;
+  width: auto;
+  max-height: 80vh;
+  max-width: 80vw;
+  margin-left: 7vw;
+}
+
+.image-buttons-div {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  padding: 20px;
+  margin-left: 2vw;
+}
+
+.select-image {
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.predict-image-button {
+  padding: 15px;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.input-image {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.upload-image-button {
+  cursor: pointer;
+}
+
+/* Hide the image, as it is only require as a placeholder for the source */
 .img {
   display: none;
 }
 
+
+/* ----- VIDEO ----- */
+.video-div {
+ display: flex;
+}
+
+/* Set a height so the image are not to differetn and change too much the layout of the web */
+#canvas-video {
+  height: 500px;
+  width: auto;
+  max-height: 80vh;
+  max-width: 80vw;
+  margin-left: 7vw;
+}
+
+.video-buttons-div {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  padding: 20px;
+  margin-left: 2vw;
+}
+
+.play-button {
+  margin-bottom: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-stop-image {
+  width: 15px;
+  height: 15px;
+}
+
+.select-video {
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.predict-video-button {
+  padding: 15px;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.input-video {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.upload-video-button {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.webcam-button {
+  cursor: pointer;
+}
+
+/* Hide the error message of the webcam until needed */
+.no-webcam {
+  display: none;
+}
+
+/* Hide the video, as it is only require as a placeholder for the source */
 .video {
   display: none;
 }
 
-.no-webcam {
-  display: none;
+
+
+
+/* ----- AUTHOR ----- */
+.author-div {
+  padding: 10px 100px;
+  font-size: 15px;
 }

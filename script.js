@@ -9,6 +9,9 @@ labels.forEach((label, i) => {
 
 $("#loaded").css("display", "none");
 
+var play_src = "assets/icons/play-button.png"
+var stop_src = "assets/icons/stop-button.png"
+
 var model = null;
 
 function setModel(model) {
@@ -27,7 +30,7 @@ async function loadModel() {
   const model = await cocoSsd.load();
   console.log("Model loaded");
 
-  // const model = null;
+  // test if error
   // throw Error("Test Error");
   return model;
 }
@@ -76,7 +79,7 @@ function predictImage() {
   const canvas = $('#canvas-image')[0];
   const ctx = canvas.getContext('2d');
 
-  ctx.font = '12.5px Arial';
+  ctx.font = "bold 12.5px Arial";
 
   model.detect(img).then((predictions) => {
 
@@ -96,7 +99,7 @@ function predictImage() {
       ctx.rect(...test);
       ctx.stroke();
 
-      ctx.fillStyle = "#FFFFFF";
+      ctx.fillStyle = "#BB86FC";
       ctx.fillText("\tClass: " + prediction.class, prediction.bbox[0], prediction.bbox[1] - 20);
       ctx.fillText("\tProb.: " + prediction.score.toFixed(3), prediction.bbox[0], prediction.bbox[1] - 5);
     });
@@ -112,7 +115,6 @@ $('.select-image').change(() => {
 
 $(".predict-image-button").click(() => {
   predictImage();
-  predictVideo();
 });
 
 $(".upload-image-button").click(() => {
@@ -148,7 +150,11 @@ function drawVideo() {
   }
 
   if (!video.paused) {
+    $(".play-stop-image").attr("src", stop_src)
     requestAnimationFrame(drawVideo);
+  }
+  else {
+    $(".play-stop-image").attr("src", play_src)
   }
 
 }
@@ -158,7 +164,7 @@ function predictVideo() {
   const canvas = $('#canvas-video')[0];
   const ctx = canvas.getContext('2d');
 
-  ctx.font = '12.5px Arial';
+  ctx.font = "bold 12.5px Arial";
 
   model.detect(video).then((predictions) => {
 
@@ -178,7 +184,7 @@ function predictVideo() {
       ctx.rect(...test);
       ctx.stroke();
 
-      ctx.fillStyle = "#FFFFFF";
+      ctx.fillStyle = "#BB86FC";
       ctx.fillText("\tClass: " + prediction.class, prediction.bbox[0], prediction.bbox[1] - 20);
       ctx.fillText("\tProb.: " + prediction.score.toFixed(3), prediction.bbox[0], prediction.bbox[1] - 5);
     });
@@ -200,11 +206,9 @@ $(".play-button").click(() => {
   const video = $(".video")[0];
   if (video.paused) {
     video.play();
-    $(".play-button").text("Stop")
   }
   else {
     video.pause();
-    $(".play-button").text("Play")
   }
 });
 
@@ -248,7 +252,6 @@ $(".webcam-button").click(() => {
       video.srcObject= stream;
 
       webcam = !webcam;
-      $(".play-button").text("Play")
     }).catch((err) => {
       console.log(err);
       $(".no-webcam").css("display", "block");
@@ -256,7 +259,6 @@ $(".webcam-button").click(() => {
   }
   else if (webcam) {
     webcam = !webcam;
-    $(".play-button").text("Play")
 
     const video = $(".video")[0]
     video.srcObject= null;

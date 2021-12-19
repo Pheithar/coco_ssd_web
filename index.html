@@ -15,76 +15,119 @@
   <body>
     <!-- REF https://github.com/tensorflow/tfjs-models -->
 
-    <div id="not-loaded">
-      Loading Model...
+    <!-- Title -->
+    <div class="title-div">
+      <h1 class="title">COCO SDD web application</h1>
     </div>
-    <div id="loaded">
-      <!-- images from https://cocodataset.org/#explore -->
-      <canvas id="canvas-image" width="500" height="500">
-        Your browser does not support the HTML canvas tag.
-      </canvas>
-
-      <select class="select-image">
-        <option selected value="image1">
-          Image 1
-        </option>
-        <option value="image2">
-          Image 2
-        </option>
-        <option value="image3">
-          Image 3
-        </option>
-      </select>
-
-      <button class="predict-image-button" type="button" name="button">
-        Predict
-      </button>
-
-      <input class="input-image" type="file" accept="image/*" />
-      <button class="upload-image-button" type="button" name="button">
-        Upload Image
-      </button>
-
-      <!-- Hidden image for getting the src -->
-      <img class="img" src="assets/images/image1.jpg"/>
-
-      <canvas id="canvas-video" width="500" height="500">
-        Your browser does not support the HTML canvas tag.
-      </canvas>
-
-      <button class="play-button" type="button" name="button">
-        Play
-      </button>
-
-      <select class="select-video">
-        <option selected value="video1">
-          Video 1
-        </option>
-        <option value="video2">
-          Video 2
-        </option>
-      </select>
-
-      <button class="predict-video-button" type="button" name="button">
-        Prediction Off
-      </button>
+    <div class="references-div">
+      <p>This project is a small implementation of the <a href="https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd" target="_blank">COCO SSD (Common Object in Context Single Shot MultiBox Detection)</a> network using <a href="https://www.tensorflow.org/js?hl=en-419" target="_blank">tensorflowjs</a>.</p>
+      <p>The images that are displayed in the image prediction are from the <a href="https://cocodataset.org/#explore" target="_blank">COCO dataset</a>.</p>
+      <p>The video 1 is from <a href="https://www.kaggle.com/mistag/short-videos" target="_blank">Kaggle</a> and video 2 is from <a href="https://www.youtube.com/watch?v=hniTMcYCP1E" target="_blank">YouTube</a>.</p>
+    </div>
 
 
-      <input class="input-video" type="file" accept="video/*" />
-      <button class="upload-video-button" type="button" name="button">
-        Upload Video
-      </button>
+    <div class="instructions-div">
+      <p>This small demo allows to use the object detection over some images and videos that are preloaded, but it allows users to upload their own images and videos, and even use their webcam to test the model.</p>
+    </div>
 
-      <button class="webcam-button" type="button" name="button">
-        Webcam Off
-      </button>
-      <p class="no-webcam">The webcam is not available</p>
+    <!-- Model div to set border and general stuff -->
+    <div class="model">
+      <!-- Loading model -->
+      <div id="not-loaded">
+        <p>Loading Model...</p>
+        <div class="lds-hourglass"></div>
+      </div>
 
-      <!-- Hidden video for getting src -->
-      <video class="video" muted loop>
-        <source src="assets/videos/video2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <!-- Model is loaded -->
+      <div id="loaded">
+        <!-- Image prediction -->
+        <div class="image-div">
+          <!-- Canvas for the image -->
+          <canvas id="canvas-image" width="500" height="500">
+            Your browser does not support the HTML canvas tag.
+          </canvas>
+
+          <!-- Class for formatting the buttons -->
+          <div class="image-buttons-div">
+            <!-- Select among preloaded images -->
+            <select class="select-image">
+              <option selected value="image1">
+                Image 1
+              </option>
+              <option value="image2">
+                Image 2
+              </option>
+              <option value="image3">
+                Image 3
+              </option>
+              <option value="image4">
+                Image 4
+              </option>
+              <option value="image5">
+                Image 5
+              </option>
+            </select>
+
+            <button class="predict-image-button" type="button" name="button">
+              Predict
+            </button>
+
+            <input class="input-image" type="file" accept="image/*" />
+            <button class="upload-image-button" type="button" name="button">
+              Upload Image
+            </button>
+          </div>
+
+          <!-- Hidden image for getting the src -->
+          <img class="img" src="assets/images/image1.jpg"/>
+        </div>
+
+        <!-- Video prediction -->
+        <div class="video-div">
+          <canvas id="canvas-video" width="500" height="500">
+            Your browser does not support the HTML canvas tag.
+          </canvas>
+
+          <div class="video-buttons-div">
+            <button class="play-button" type="button" name="button">
+              <img class="play-stop-image" src="assets/icons/play-button.png" alt="Play">
+            </button>
+
+            <select class="select-video">
+              <option selected value="video1">
+                Video 1
+              </option>
+              <option value="video2">
+                Video 2
+              </option>
+            </select>
+
+            <button class="predict-video-button" type="button" name="button">
+              Prediction Off
+            </button>
+
+
+            <input class="input-video" type="file" accept="video/*" />
+            <button class="upload-video-button" type="button" name="button">
+              Upload Video
+            </button>
+
+            <button class="webcam-button" type="button" name="button">
+              Webcam Off
+            </button>
+            <p class="no-webcam">The webcam is not available</p>
+          </div>
+
+          <!-- Hidden video for getting src -->
+          <video class="video" muted loop>
+            <source src="assets/videos/video2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="author-div">
+      <p>Developed by Alejandro Valverde Mahou (<a href="https://github.com/Pheithar" target="_blank">Pheithar</a>) and available in <a href="https://github.com/Pheithar/coco_ssd_web" target="_blank">this GitHub repository</a>.</p>
     </div>
 
     <script src="script.js"></script>
