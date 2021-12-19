@@ -104,7 +104,7 @@ a:active {
 
 /* ----- MODEL LOADED ----- */
 #loaded {
-  display: flex;
+  isplay: none; 
   justify-content: center;
   align-content: center;
 }
