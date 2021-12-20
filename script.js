@@ -9,6 +9,9 @@ labels.forEach((label, i) => {
   colors.push(randomColor);
 });
 
+// Start with it hidden
+$("#loaded").css("display", "none");
+
 
 
 // Define the model
