@@ -1,4 +1,4 @@
-# COCO SDD web application
+# COCO SSD web application
 
 A small web application for object recognition over image and video.
 
